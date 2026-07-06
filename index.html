@@ -5,13 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tapewatch — Continuous credit surveillance for tokenized private credit</title>
 <meta name="description" content="Loan-level AI surveillance and ratings for tokenized credit pools. Know what's inside the vault — continuously, not at issuance.">
-<!--
-  DEMAND-TEST INSTRUMENTATION
-  1. Analytics: paste Plausible/Fathom snippet below this comment.
-  2. Forms: replace FORM_ENDPOINT in the script at the bottom with your Formspree/Tally endpoint.
-  3. UTMs are captured automatically into every form payload (field: utm).
-  4. CTA tiers: subscribe = curiosity · surveillance request = intent+revenue · issuer form = pipeline.
--->
+<!-- Analytics: Cloudflare Web Analytics (dashboard-injected, no manual snippet needed) -->
 <style>
   :root { --bg:#0c1210; --panel:#121a17; --line:#22302a; --ink:#e8efeb; --sub:#93a59d; --brand:#3ddc97; --brandink:#0b3325; --serif:Georgia,'Times New Roman',serif; }
   * { box-sizing:border-box; margin:0; }
@@ -61,7 +55,7 @@
 
 <nav class="nav">
   <div class="logo">TAPE<span>WATCH</span></div>
-  <a class="cta" href="#surveillance" data-event="nav-cta">Request pool surveillance</a>
+  <a class="cta" href="https://tally.so/r/WOdANa" data-event="nav-cta">Request pool surveillance</a>
 </nav>
 
 <section class="hero">
@@ -70,7 +64,7 @@
   <p class="lede">Tokenized credit pools publish TVL and APY — not borrower concentration, covenant drift, or how the collateral behaved last month. Tapewatch runs continuous, loan-level AI surveillance on tokenized credit and publishes machine-readable risk signals you can act on before the pool does.</p>
   <div class="btnrow">
     <a class="btn primary" href="#monitor" data-event="hero-monitor">Get the free Tokenized Credit Monitor</a>
-    <a class="btn secondary" href="#surveillance" data-event="hero-surveillance">Request private surveillance →</a>
+    <a class="btn secondary" href="https://tally.so/r/WOdANa" data-event="hero-surveillance">Request private surveillance →</a>
   </div>
 </section>
 
@@ -107,24 +101,8 @@
 <section class="sec" id="monitor">
   <h2>The Tokenized Credit Monitor</h2>
   <p class="sub">Free, monthly, independent. Ten pools torn down to the loan level. Read it before you allocate — or before someone asks why you didn't.</p>
-  <form class="form" data-form="monitor">
-    <label>Work email</label>
-    <input type="email" name="email" required placeholder="you@fund.xyz">
-    <label>I am a…</label>
-    <select name="role" required>
-      <option value="">Select role</option>
-      <option>Vault curator / risk manager</option>
-      <option>Allocator (fund, family office, DAO treasury)</option>
-      <option>Issuer / originator</option>
-      <option>Protocol team</option>
-      <option>Other</option>
-    </select>
-    <input type="hidden" name="utm">
-    <input type="hidden" name="tier" value="monitor-subscribe">
-    <button class="btn primary" style="margin-top:16px" type="submit" data-event="monitor-subscribe">Subscribe free</button>
-    <div class="thanks">You're in. Issue #1 lands in your inbox this week.</div>
-    <p class="fine">No spam, no token, no airdrop. Just credit analysis.</p>
-  </form>
+  <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+    data-beehiiv-form="b5b6cd28-7841-48b0-9120-8361161e4dcb"></script>
 </section>
 
 <section class="sec" id="surveillance">
@@ -136,35 +114,13 @@
       <a class="btn secondary" href="#monitor" data-event="price-free">Subscribe</a></div>
     <div class="price" style="border-color:var(--brand)"><h3>Pool Surveillance</h3><div class="amt">$2,500<span style="font-size:13px;color:var(--sub)"> /pool, one-off</span></div>
       <ul><li>Deep teardown of any pool you name</li><li>Loan-level findings memo in 5 business days</li><li>Continuous surveillance from $2,500/pool/mo</li></ul>
-      <a class="btn primary" href="#request" data-event="price-surveillance">Request surveillance</a></div>
+      <a class="btn primary" href="https://tally.so/r/WOdANa" data-event="price-surveillance">Request surveillance</a></div>
     <div class="price"><h3>Rated</h3><div class="amt">Custom</div>
       <ul><li>Issuer-sponsored rating + ongoing surveillance</li><li>Published methodology, machine-readable feed</li><li>For pools raising their next tranche</li></ul>
-      <a class="btn secondary" href="#request" data-event="price-rated">Talk to us</a></div>
+      <a class="btn secondary" href="https://tally.so/r/kdxYyM" data-event="price-rated">Rate my pool</a></div>
   </div>
 </section>
 
-<section class="sec" id="request">
-  <h2>Request surveillance</h2>
-  <form class="form" data-form="surveillance">
-    <label>Work email</label>
-    <input type="email" name="email" required placeholder="you@fund.xyz">
-    <label>Pool name / address</label>
-    <input type="text" name="pool" required placeholder="e.g., Morpho vault 0x… or Maple pool name">
-    <label>You are…</label>
-    <select name="role" required>
-      <option value="">Select role</option>
-      <option>Curator of this pool</option>
-      <option>Allocator holding / considering this pool</option>
-      <option>Issuer of this pool</option>
-    </select>
-    <label>What do you need? (optional)</label>
-    <textarea name="notes" rows="3" placeholder="One-off teardown, continuous surveillance, rating…"></textarea>
-    <input type="hidden" name="utm">
-    <input type="hidden" name="tier" value="surveillance-request">
-    <button class="btn primary" style="margin-top:16px" type="submit" data-event="surveillance-request">Request — we reply within 24h</button>
-    <div class="thanks">Received. You'll hear from us within 24 hours with scope and timing.</div>
-  </form>
-</section>
 
 <footer>
   <div>© 2026 Tapewatch Research. Independent credit surveillance. Not investment advice.</div>
@@ -172,31 +128,19 @@
 </footer>
 
 <script>
-// ---- CONFIG: point this at Formspree/Tally before launch ----
-const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/XXXXXXXX"
-
-// UTM capture
-const params = new URLSearchParams(location.search);
-const utm = ['utm_source','utm_medium','utm_campaign'].map(k=>params.get(k)).filter(Boolean).join('/') || 'direct';
-document.querySelectorAll('input[name="utm"]').forEach(i=>i.value=utm);
-
-// Lightweight event log (replace with Plausible custom events)
-document.querySelectorAll('[data-event]').forEach(el=>{
-  el.addEventListener('click',()=>{ console.log('event:', el.dataset.event, '| utm:', utm);
-    if (window.plausible) plausible(el.dataset.event); });
-});
-
-// Form handling
-document.querySelectorAll('form[data-form]').forEach(f=>{
-  f.addEventListener('submit', async e=>{
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(f).entries());
-    console.log('submit:', f.dataset.form, data);
-    if (FORM_ENDPOINT) { try { await fetch(FORM_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)}); } catch(err){} }
-    f.querySelector('.thanks').style.display='block';
-    f.querySelector('button').disabled=true;
+// UTM forwarder: append utm_* query params to all tally.so links
+(function(){
+  var params = new URLSearchParams(location.search);
+  var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+  var utms = {};
+  utmKeys.forEach(function(k){ var v = params.get(k); if(v) utms[k] = v; });
+  if (!Object.keys(utms).length) return;
+  document.querySelectorAll('a[href*="tally.so"]').forEach(function(a){
+    var url = new URL(a.href);
+    Object.keys(utms).forEach(function(k){ url.searchParams.set(k, utms[k]); });
+    a.href = url.toString();
   });
-});
+})();
 </script>
 </body>
 </html>
