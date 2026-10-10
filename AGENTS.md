@@ -82,8 +82,7 @@ closing reply. Only to text you wrote or changed.
 
 The public marketing site for Tapewatch (credit surveillance for tokenized
 private credit): a single `index.html` with a Beehiiv subscribe form.
-The rules below assume it's published with GitHub Pages from `main`; if it's
-hosted somewhere else, update them.
+It's hosted on Cloudflare Pages, which serves tapewatch.xyz from `main`.
 
 ## Code layout
 
@@ -109,11 +108,14 @@ screenshots for `prove-it`; check desktop and phone widths.
   `.agents/skills/tapewatch-design/SKILL.md`. Read it before touching
   `index.html`.
 
-- Merging to `main` deploys to GitHub Pages immediately. There is no staging.
+- Merging to `main` deploys to tapewatch.xyz immediately. Every pushed
+  branch also gets a Cloudflare preview at
+  `https://<branch>.tapewatch-site.pages.dev`, with `/` in the branch name
+  turned into `-` (the Cloudflare bot posts the link on the PR). Check the preview before asking Kai to merge.
 - Keep it buildless: plain HTML/CSS/JS, libraries from a CDN with pinned versions.
-- Repo files other than dot-folders (including `AGENTS.md`, `CLAUDE.md`,
-  `README.md`) are publicly served by Pages. Never put secrets or private
-  notes in them.
+- Every file in the repo is publicly served, including dot-folders
+  (`.agents/`, `.claude/`, `.gitignore`), `AGENTS.md`, `CLAUDE.md` and
+  `README.md`. Never put secrets or private notes anywhere in this repo.
 
 - Copy follows Tapewatch's research-publisher posture (facts and
   methodology, no advice, no accusations of intent). Positioning and pricing
