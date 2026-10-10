@@ -16,7 +16,7 @@
      red-pencil accent for anything we flag. Serif for argument, sans for
      reading, mono for anything that is data. */
   :root {
-    --paper:#F2EFE8; --paper-2:#E8E4DA; --ink:#141413; --ink-2:#4A4844; --hair:#CBC6BA;
+    --paper:#F2EFE8; --ink:#141413; --ink-2:#4A4844; --hair:#CBC6BA;
     --card:#FBFAF6; --pen:#C23B22; --pen-on-ink:#FF7A5C; --amber-on-ink:#E9B949; --ok-on-ink:#B9C7BD; --ink-muted:#B8B4AA; --pen-tint:rgba(194,59,34,.08); --amber:#8A5A00; --amber-tint:rgba(176,122,0,.12);
     --serif:'Newsreader',Georgia,serif; --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -34,8 +34,8 @@
   .mast .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; }
   .brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
   .brand svg { width:22px; height:22px; flex:none; }
-  .brand .a { fill:var(--ink); } .brand .p { fill:var(--pen); }
-  footer .brand .a { fill:var(--paper); } footer .brand .p { fill:var(--pen-on-ink); }
+  .brand { --mark-a:var(--ink); --mark-p:var(--pen); }
+  footer .brand { --mark-a:var(--paper); --mark-p:var(--pen-on-ink); }
   .brand b { font-weight:600; font-size:18px; letter-spacing:-.01em; }
   .brand small { font-family:var(--mono); font-size:11px; color:var(--ink-2); letter-spacing:.04em; padding-left:12px; margin-left:2px; border-left:1px solid var(--hair); }
   .mast nav { display:flex; align-items:center; gap:28px; font-size:14px; }
@@ -193,11 +193,12 @@
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mark" viewBox="0 0 16 16"><rect x="1" y="2" width="14" height="2.4" style="fill:var(--mark-a)"/><rect x="1" y="6.8" width="9" height="2.4" style="fill:var(--mark-p)"/><rect x="1" y="11.6" width="14" height="2.4" style="fill:var(--mark-a)"/></symbol></svg>
 
 <header class="mast">
   <div class="wrap">
     <a class="brand" href="#" aria-label="Tapewatch home">
-      <svg viewBox="0 0 16 16" aria-hidden="true"><rect class="a" x="1" y="2" width="14" height="2.4"/><rect class="p" x="1" y="6.8" width="9" height="2.4"/><rect class="a" x="1" y="11.6" width="14" height="2.4"/></svg>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#mark"/></svg>
       <b>Tapewatch</b>
       <small>Credit surveillance for tokenized private credit</small>
     </a>
@@ -237,9 +238,9 @@
       <thead><tr><th>loan_id</th><th>obligor</th><th class="r">balance</th><th class="r">dpd</th><th class="opt">sector</th></tr></thead>
       <tbody>
         <tr><td>L-0398</td><td>OBL-0154</td><td class="r">2,850,000</td><td class="r">0</td><td class="opt">payroll adv.</td></tr>
-        <tr class="hit"><td>L-0412</td><td>OBL-0217</td><td class="r">7,100,000</td><td class="r">0</td><td class="opt">BNPL</td></tr>
-        <tr class="hit"><td>L-0431</td><td>OBL-0217-A</td><td class="r">5,420,000</td><td class="r">0</td><td class="opt">BNPL</td></tr>
-        <tr class="hit"><td>L-0457</td><td>OBL-0217-B</td><td class="r">4,240,000</td><td class="r">31</td><td class="opt">BNPL</td></tr>
+        <tr class="hit"><td>L-0412</td><td>OBL-0217</td><td class="r">6,350,000</td><td class="r">0</td><td class="opt">BNPL</td></tr>
+        <tr class="hit"><td>L-0431</td><td>OBL-0217-A</td><td class="r">4,880,000</td><td class="r">0</td><td class="opt">BNPL</td></tr>
+        <tr class="hit"><td>L-0457</td><td>OBL-0217-B</td><td class="r">3,770,000</td><td class="r">31</td><td class="opt">BNPL</td></tr>
         <tr><td>L-0460</td><td>OBL-0233</td><td class="r">1,900,000</td><td class="r">0</td><td class="opt">invoice fin.</td></tr>
         <tr><td>L-0472</td><td>OBL-0241</td><td class="r">3,120,000</td><td class="r">0</td><td class="opt">payroll adv.</td></tr>
       </tbody>
@@ -261,10 +262,10 @@
     <h2>Ratings stop at issuance. Risk doesn't.</h2>
     <p class="sub">The incumbents rate the wrapper and the flagship funds, once. Tapewatch watches the loans — every week, across every pool you hold or curate.</p>
 
-    <div class="timeline" role="img" aria-label="Timeline over one year: a point-in-time rating has a single mark at issuance; Tapewatch has 52 weekly marks, three of them flagged.">
+    <div class="timeline" role="img" aria-label="Timeline over 52 weeks from issuance: a point-in-time rating has a single mark at issuance; Tapewatch has 52 weekly marks, three of them flagged.">
       <div class="tl-row"><span>Point-in-time rating</span><div class="track once"></div></div>
       <div class="tl-row"><span>Tapewatch</span><div class="track weekly"><i style="left:36.5%"></i><i style="left:38.4%"></i><i style="left:63.5%"></i></div></div>
-      <div class="tl-axis"><span></span><div><span>Issuance</span><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div></div>
+      <div class="tl-axis"><span></span><div><span>Wk 0</span><span>13</span><span>26</span><span>39</span><span>52</span></div></div>
       <p class="tl-key"><i></i>Flagged week</p>
     </div>
 
@@ -282,13 +283,13 @@
     <h2>From this month's Monitor</h2>
     <p class="sub">A live sample from our monthly teardown of 10 public tokenized credit pools. The full analysis is free — because you shouldn't have to trust a rating you can't inspect.</p>
     <div class="sheet">
-      <table>
-        <thead><tr><th>Pool</th><th>TVL</th><th>Stated mandate</th><th>Finding</th><th>Signal</th></tr></thead>
-        <tbody>
-          <tr><td class="pool"><b>Pool A</b><span>Fintech receivables</span></td><td class="num" data-k="TVL">$142M</td><td class="num" data-k="Mandate">≤5% single-borrower</td><td class="find">Top borrower reached 11.8% via affiliated entities</td><td class="sig"><span class="flag alert">DRIFT</span></td></tr>
-          <tr><td class="pool"><b>Pool B</b><span>Equipment finance</span></td><td class="num" data-k="TVL">$88M</td><td class="num" data-k="Mandate">Senior secured only</td><td class="find">Composition consistent; DSCR stable q/q</td><td class="sig"><span class="flag ok">CLEAN</span></td></tr>
-          <tr><td class="pool"><b>Pool C</b><span>SMB term loans</span></td><td class="num" data-k="TVL">$64M</td><td class="num" data-k="Mandate">90d+ delinq ≤3%</td><td class="find">Delinquency migration accelerating in 30–60d bucket</td><td class="sig"><span class="flag warn">WATCH</span></td></tr>
-          <tr class="blur" aria-hidden="true"><td class="pool"><b>Pool D</b><span>Trade finance</span></td><td class="num" data-k="TVL">$210M</td><td class="num" data-k="Mandate">—</td><td class="find">Subscribe to read the remaining seven pools</td><td class="sig"><span class="flag warn">•••</span></td></tr>
+      <table role="table">
+        <thead role="rowgroup"><tr role="row"><th role="columnheader">Pool</th><th role="columnheader">TVL</th><th role="columnheader">Stated mandate</th><th role="columnheader">Finding</th><th role="columnheader">Signal</th></tr></thead>
+        <tbody role="rowgroup">
+          <tr role="row"><td role="cell" class="pool"><b>Pool A</b><span>Fintech receivables</span></td><td role="cell" class="num" data-k="TVL">$142M</td><td role="cell" class="num" data-k="Mandate">≤5% single-borrower</td><td role="cell" class="find" data-k="Finding">Top borrower reached 11.8% via affiliated entities</td><td role="cell" class="sig"><span class="flag alert">DRIFT</span></td></tr>
+          <tr role="row"><td role="cell" class="pool"><b>Pool B</b><span>Equipment finance</span></td><td role="cell" class="num" data-k="TVL">$88M</td><td role="cell" class="num" data-k="Mandate">Senior secured only</td><td role="cell" class="find" data-k="Finding">Composition consistent; DSCR stable q/q</td><td role="cell" class="sig"><span class="flag ok">CLEAN</span></td></tr>
+          <tr role="row"><td role="cell" class="pool"><b>Pool C</b><span>SMB term loans</span></td><td role="cell" class="num" data-k="TVL">$64M</td><td role="cell" class="num" data-k="Mandate">90d+ delinq ≤3%</td><td role="cell" class="find" data-k="Finding">Delinquency migration accelerating in 30–60d bucket</td><td role="cell" class="sig"><span class="flag warn">WATCH</span></td></tr>
+          <tr role="row" class="blur" aria-hidden="true"><td role="cell" class="pool"><b>Pool D</b><span>Trade finance</span></td><td role="cell" class="num" data-k="TVL">$210M</td><td role="cell" class="num" data-k="Mandate">—</td><td role="cell" class="find" data-k="Finding">Subscribe to read the remaining seven pools</td><td role="cell" class="sig"><span class="flag warn">•••</span></td></tr>
         </tbody>
       </table>
       <div class="sheet-foot"><span>Showing 3 of 10 pools</span><a href="#monitor">Read all 10 in the Monitor →</a></div>
@@ -350,7 +351,7 @@
   <div class="wrap">
     <div>
       <a class="brand" href="#" aria-label="Tapewatch home">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><rect class="a" x="1" y="2" width="14" height="2.4"/><rect class="p" x="1" y="6.8" width="9" height="2.4"/><rect class="a" x="1" y="11.6" width="14" height="2.4"/></svg>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#mark"/></svg>
         <b>Tapewatch</b>
       </a>
       <p>© 2026 Tapewatch Research. Independent credit surveillance. Not investment advice.</p>
@@ -361,14 +362,25 @@
 
 <script>
 // Ticker: repeat the items until one copy is wider than the screen, then
-// double it so the -50% loop is seamless.
+// double it so the -50% loop is seamless. Recount after fonts load and on
+// resize, but only rebuild when the count changes.
 (function(){
   var run = document.querySelector('.ticker .run');
   if (!run) return;
-  var set = run.innerHTML, w = run.scrollWidth || 1, n = Math.ceil(innerWidth / w);
-  run.innerHTML = new Array(n * 2 + 1).join(set);
-  run.style.setProperty('--dur', (60 * n) + 's');
-  run.classList.add('go');
+  var set = run.innerHTML, copies = 1, t;
+  function fill(){
+    var w = run.scrollWidth / copies;
+    if (!w) return;
+    var n = Math.ceil(innerWidth / w);
+    if (n * 2 === copies) return;
+    copies = n * 2;
+    run.innerHTML = new Array(copies + 1).join(set);
+    run.style.setProperty('--dur', (60 * n) + 's');
+    run.classList.add('go');
+  }
+  fill();
+  if (document.fonts) document.fonts.ready.then(fill);
+  addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(fill, 200); });
 })();
 
 // UTM forwarder: append utm_* query params to all tally.so links
