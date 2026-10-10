@@ -283,8 +283,8 @@
 <section class="sec" id="sample">
   <div class="label"><b>02</b>Sample</div>
   <div>
-    <h2>From this month's Monitor</h2>
-    <p class="sub">A live sample from our monthly teardown of 8&#8288;–&#8288;12 public tokenized credit pools. The full analysis is free — because you shouldn't have to trust a rating you can't inspect.</p>
+    <h2>What a Monitor entry looks like</h2>
+    <p class="sub">An illustrative sample of the format: each pool checked against its stated mandate, with one signal. The Monitor covers 8&#8288;–&#8288;12 public tokenized credit pools a month, free, because you shouldn't have to trust a rating you can't inspect.</p>
     <div class="sheet">
       <table role="table">
         <thead role="rowgroup"><tr role="row"><th role="columnheader">Pool</th><th role="columnheader">TVL</th><th role="columnheader">Stated mandate</th><th role="columnheader">Finding</th><th role="columnheader">Signal</th></tr></thead>
@@ -295,7 +295,7 @@
           <tr role="row" class="blur" aria-hidden="true"><td role="cell" class="pool"><b>Pool D</b><span>Trade finance</span></td><td role="cell" class="num" data-k="TVL">$210M</td><td role="cell" class="mand" data-k="Mandate">—</td><td role="cell" class="find" data-k="Finding">Subscribe to read the rest of the tape</td><td role="cell" class="sig"><span class="flag warn">•••</span></td></tr>
         </tbody>
       </table>
-      <div class="sheet-foot"><span>Showing 3 pools</span><a href="#monitor">Read the full tape in the Monitor →</a></div>
+      <div class="sheet-foot"><span>Illustrative examples, not data from real pools</span><a href="#monitor">Read the real tape in the Monitor →</a></div>
     </div>
   </div>
 </section>
@@ -365,6 +365,7 @@
 
 <script>
 // Ticker: built from the sample table rows so the two can't disagree.
+// The rows are illustrative, so each item says so.
 // Repeat the items until one copy is wider than the screen, then double it
 // so the -50% loop is seamless. Recount after fonts load and on resize,
 // and only rebuild when the count changes.
@@ -376,7 +377,7 @@
   for (var k = rows.length - 1; k >= 0; k--) {
     var c = rows[k].cells, flag = c[4].querySelector('.flag');
     var item = document.createElement('span'), sig = document.createElement('b');
-    item.textContent = [c[0].querySelector('b').textContent, c[0].querySelector('span').textContent, c[3].textContent, ''].join(' · ').toUpperCase();
+    item.textContent = ['Example', c[0].querySelector('b').textContent, c[0].querySelector('span').textContent, c[3].textContent, ''].join(' · ').toUpperCase();
     sig.textContent = flag.textContent;
     sig.className = tone[flag.classList[1]] || 'c';
     item.appendChild(sig);
