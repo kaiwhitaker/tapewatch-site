@@ -134,9 +134,10 @@ Rules:
 - Vertical rhythm: sections use `clamp(56px, 7vw, 96px)` padding. Don't add
   one-off margins. Reuse `.sub` and the existing spacing.
 - Breakpoints:
-  - At 1180px the rate card stacks.
-  - At 960px the hero, the section grid, and the signup collapse to one
-    column, and the nav links hide.
+  - At 1180px the rate card stacks, and the signup stacks with the form box
+    capped at 560px.
+  - At 960px the hero and the section grid collapse to one column, and the
+    nav links hide.
   - At 640px tables stack into records, and the figure columns go vertical.
 
 ## Components
@@ -185,6 +186,10 @@ Reuse these before you invent anything. The class names are the ones in
   52)`), never eyeballed percentages.
 - **Contents list** (`.contents`). Roman numerals in mono, with hairline
   rows.
+- **Form box** (`.formbox`). Holds the Beehiiv form, which is a
+  cross-origin iframe we can't style. All we control is the width of its
+  slot. The column is at least 440px wide so the email field stays usable.
+  Don't put it in a narrower column.
 - **Rate card** (`.rate`). One row per product: serif name, mono price with
   a mono sub-label, a dash list, and an action. `.rate.feature` gets the pen
   bar. Use it on at most one row, and only for the product we actually
