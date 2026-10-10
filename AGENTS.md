@@ -105,6 +105,10 @@ screenshots for `prove-it`; check desktop and phone widths.
 
 ## Hard rules
 
+- Visual and copy changes follow the house style in
+  `.agents/skills/tapewatch-design/SKILL.md`. Read it before touching
+  `index.html`.
+
 - Merging to `main` deploys to GitHub Pages immediately. There is no staging.
 - Keep it buildless: plain HTML/CSS/JS, libraries from a CDN with pinned versions.
 - Repo files other than dot-folders (including `AGENTS.md`, `CLAUDE.md`,
